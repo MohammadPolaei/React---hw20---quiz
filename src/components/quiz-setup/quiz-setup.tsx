@@ -1,10 +1,18 @@
 import { useForm } from "react-hook-form";
 
-type FormData = {
+export type FormData = {
 	numberOfQuestion: number;
 	category: string;
 	difficulty: string;
 };
+export type FormDataFetch = {
+	numberOfQuestion: number;
+	category: string;
+	difficulty: string;
+};
+
+// const formStateToSetup = useContext(QuizContext);
+// const { formConfig, setFormConfig } = formStateToSetup;
 
 function QuizSetup() {
 	const {

@@ -1,3 +1,4 @@
+import QuizQuestions from "./quiz-questions/quiz-questions";
 import QuizSetup from "./quiz-setup/quiz-setup";
 
 function Home() {
@@ -5,7 +6,7 @@ function Home() {
 		<div className="w-full">
 			{/* <Welcome /> */}
 			<QuizSetup />
-			{/* <QuizQuestions /> */}
+			<QuizQuestions />
 			{/* <QuizResult /> */}
 		</div>
 	);
