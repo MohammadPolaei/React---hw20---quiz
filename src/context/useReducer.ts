@@ -1,4 +1,5 @@
 import type { Dispatch } from "react";
+import type { FormDataFetch } from "../components/quiz-setup/quiz-setup";
 
 export type ActionType =
 	| { type: "UPDATE_SCORE" }
@@ -16,10 +17,11 @@ export const initialState = {
 	currentQuestionIndex: 0,
 	count: 0,
 };
-
 export type quizContextType = {
 	state: StateType;
 	dispatch: Dispatch<ActionType>;
+	formConfig: FormDataFetch;
+	setFormConfig: (formConf: FormDataFetch) => void;
 };
 
 export function quizReducer(state: StateType, action: ActionType) {

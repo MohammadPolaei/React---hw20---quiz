@@ -2,14 +2,7 @@ import { createContext, useReducer, useState, type ReactNode } from "react";
 import type { FormDataFetch } from "../components/quiz-setup/quiz-setup";
 import { initialState, quizReducer, type quizContextType } from "./useReducer";
 
-type FormConfig = {
-	formConfig: FormDataFetch;
-	setFormConfig: (formConf: FormDataFetch) => void;
-};
-
-export const QuizContext = createContext<(quizContextType & FormConfig) | null>(
-	null
-);
+export const QuizContext = createContext<quizContextType | null>(null);
 
 export const QuizProvider = ({ children }: { children: ReactNode }) => {
 	const [state, dispatch] = useReducer(quizReducer, initialState);

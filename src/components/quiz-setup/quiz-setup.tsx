@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { QuizContext } from "../../context/useContext";
 
 export type FormData = {
 	numberOfQuestion: number;
@@ -11,10 +13,9 @@ export type FormDataFetch = {
 	difficulty: string;
 };
 
-// const formStateToSetup = useContext(QuizContext);
-// const { formConfig, setFormConfig } = formStateToSetup;
-
 function QuizSetup() {
+	const { formConfig, setFormConfig } = useContext(QuizContext)!;
+
 	const {
 		register,
 		handleSubmit,
@@ -22,7 +23,7 @@ function QuizSetup() {
 	} = useForm<FormData>();
 
 	const onSubmit = (data: FormData) => {
-		console.log(data);
+		setFormConfig(data);
 	};
 	return (
 		<div className="flex flex-col items-center justify-center py-20 w-full">
@@ -57,9 +58,9 @@ function QuizSetup() {
 						})}
 					>
 						<option>select</option>
-						<option>Genereal Knowlodge</option>
-						<option>Sports</option>
-						<option>Geography</option>
+						<option>genereal Knowlodge</option>
+						<option>sports</option>
+						<option>geography</option>
 					</select>
 					<div>
 						{errors.category && (
@@ -78,9 +79,9 @@ function QuizSetup() {
 						})}
 					>
 						<option>select</option>
-						<option>Medium</option>
-						<option>Hard</option>
-						<option>Easy</option>
+						<option>medium</option>
+						<option>hard</option>
+						<option>easy</option>
 					</select>
 					{errors.difficulty && (
 						<p className="text-red-800 text-sm p-1 rounded-md bg-[#fff8] w-1/2">
